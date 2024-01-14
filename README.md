@@ -43,9 +43,3 @@ Or to force a rebuild of everything:
 ```bash
 docker-compose build --no-cache --progress plain
 ```
-
-# To open a terminal inside the docker container
-```bash
-docker exec -it app /bin/bash
-cd /app
-```
