@@ -27,17 +27,18 @@ It takes up about 2 Gb on my system and takes about 10 minutes to build from scr
 6. Visit http://localhost:8080/ in browser
 
 
-# List docker containers
+# Utility How To
+## List docker containers
 ```bash
 docker ps -a
 ```
 
-# Entering the docker container to execute code manually
+## Entering the docker container to execute code manually
 ```bash
 docker exec -it app /bin/bash
 ```
 
-# Rebuild docker image or view image build logs
+## Rebuild docker image or view image build logs
 If you make a Dockerfile change and want to build and view the build logs you can use:
 ```bash
 docker-compose build --progress plain
