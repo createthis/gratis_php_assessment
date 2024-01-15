@@ -19,16 +19,12 @@ It takes up about 2 Gb on my system and takes about 10 minutes to build from scr
    git clone https://github.com/createthis/gratis_php_assessment.git
    cd gratis_php_assessment
    ```
-5. Copy dotenv example file so you have the encryption salt
-   ```bash
-   cp .env.example .env
-   ```
-6. In a terminal:
+5. In a terminal:
    ```bash
    cp .env.example .env # copy dotenv example file
    docker-compose up -d
    ```
-7. Open a terminal in the docker container and install backend dependencies via composer:
+6. Open a terminal in the docker container and install backend dependencies via composer:
    ```bash
    docker exec -it app /bin/bash
    composer install
@@ -38,11 +34,11 @@ It takes up about 2 Gb on my system and takes about 10 minutes to build from scr
    ```bash
    vendor/bin/phalcon-migrations run
    ```
-8. In another terminal tab, start following the docker logs so you can see apache logs:
+7. In another terminal tab, start following the docker logs so you can see apache logs:
    ```bash
    docker logs app --follow
    ```
-9. Visit http://localhost:8080/ in browser
+8. Visit http://localhost:8080/ in browser
 
 
 # Utility How To
