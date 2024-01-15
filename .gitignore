@@ -1,3 +1,6 @@
+# Dotenv
+.env
+
 # PHP Composer (similar to node_modules in npm/yarn)
 vendor
 

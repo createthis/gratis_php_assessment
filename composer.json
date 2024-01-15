@@ -1,5 +1,8 @@
 {
     "require-dev": {
         "phalcon/migrations": "^3.0"
+    },
+    "require": {
+        "vlucas/phpdotenv": "^5.6"
     }
 }
