@@ -24,7 +24,6 @@ return new Config([
     'migrationsDir' => 'src/migrations',
     /* As of Jan 15th, true is broken upstream https://github.com/phalcon/migrations/issues/144 */
     'migrationsTsBased' => false, // true - Use TIMESTAMP as version name, false - use versions
-    'cryptSalt' => $_ENV['APP_CRYPT_SALT'],
     'exportDataFromTables' => [
       'users',
     ],
