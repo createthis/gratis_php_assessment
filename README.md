@@ -20,7 +20,11 @@ It takes up about 2 Gb on my system and takes about 10 minutes to build from scr
    docker exec -it app /bin/bash
    composer install
    ```
-5. Visit http://localhost:8080/ in browser
+5. In another terminal tab, start following the docker logs so you can see apache logs:
+   ```bash
+   docker logs app --follow
+   ```
+6. Visit http://localhost:8080/ in browser
 
 
 # List docker containers
