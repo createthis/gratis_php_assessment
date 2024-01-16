@@ -7,7 +7,12 @@ The assessment asked me to use XAMPP. However:
 - I use a Mac for development and I wanted to see if Docker would help standardize the environment.
 
 Therefore, I built a Docker container with XAMPP, PHP 8.2, and Phalcon 5.6.0.
-It takes up about 2 Gb on my system and takes about 10 minutes to build from scratch. Here's how:
+The frontend is a hybrid single page application with Phalcon MVC backend, utilizing NPM + React + Babel + Webpack.
+NPM provides convenient package management for frontend modules, including security vulnerability information.
+It could easily be augmented with frontend unit tests (Jest + React Testing Library) and even Typescript.
+The docker images (app and mysql) take up about 2 Gb on my system and takes about 10 minutes to build from scratch.
+
+Let's get started:
 
 1. Install docker-desktop https://www.docker.com/products/docker-desktop/
 2. Make sure docker-desktop is running in the background.
