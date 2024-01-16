@@ -25,12 +25,14 @@ class LoginController extends Controller
       if (!$email || $email === '') {
         $this->flashSession->error('return enter your email');
         //pick up the same view to display the flash session errors
+        error_log('failed login - email missing');
         return $this->view->pick('login');
       }
 
       if (!$password || $password === '') {
         $this->flashSession->error('return enter your password');
         //pick up the same view to display the flash session errors
+        error_log('failed login - password missing');
         return $this->view->pick('login');
       }
 
@@ -57,6 +59,7 @@ class LoginController extends Controller
 
       $this->session->set('user_id', $user->id);
       error_log('login succeeded');
+      return $this->response->redirect('/');
     }
   }
 }

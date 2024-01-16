@@ -1,9 +1,17 @@
-<?php
-
-echo "<form action='/login' method='post'/>";
-echo "<label for='email'>Email</label>";
-echo "<input name='email' type='text'/>";
-echo "<label for='password'>Password</label>";
-echo "<input name='password' type='text'/>";
-echo "<button type='submit'>Submit</button>";
-echo "</form>";
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Welcome</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css"/>
+    <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="node_modules/axios/dist/axios.min.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <div id="login" data="{}">Loading...</div>
+    </div>
+    <script src="bundle.js"></script>
+  </body>
+</html>

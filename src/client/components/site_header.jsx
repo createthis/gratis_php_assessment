@@ -23,6 +23,13 @@ function SiteHeader(props) {
             Home
           </Button>
           <Button
+            id="login_button"
+            variant="info"
+            href="/login"
+          >
+            Login
+          </Button>
+          <Button
             id="logout_button"
             variant="warning"
             href="/logout"
