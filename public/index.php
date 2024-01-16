@@ -13,6 +13,11 @@ use Phalcon\Mvc\View;
 use Phalcon\Mvc\Application;
 use Phalcon\Mvc\Url;
 use Phalcon\Config\Config;
+use Phalcon\Session\Manager;
+use Phalcon\Session\Adapter\Stream;
+use Phalcon\Mvc\Router;
+use Phalcon\Events\Event;
+use Phalcon\Events\Manager as EventsManager;
 
 $dotenv = Dotenv::createImmutable(BASE_PATH);
 $dotenv->load();
@@ -28,7 +33,34 @@ $loader->setDirectories(
 
 $loader->register();
 
+
 $container = new FactoryDefault();
+$container->set(
+  'router',
+  function () {
+    $router = new Router();
+    $routes_path = BASE_PATH . '/config/routes.php';
+    require_once $routes_path;
+    return $router;
+  }
+);
+$container->set(
+  'session',
+  function () {
+    $session = new Manager();
+    $files = new Stream(
+      [
+        'savePath' => '/tmp',
+      ]
+    );
+
+    $session
+      ->setAdapter($files)
+      ->start();
+
+    return $session;
+  }
+);
 $container->set(
   'config',
   function () {
@@ -59,7 +91,7 @@ $container->set(
 
 // Set the database service
 $container['db'] = function () {
-  return new DbAdapter(
+  $connection = new DbAdapter(
     [
       "host"     => 'mysql',
       "username" => 'root',
@@ -67,6 +99,16 @@ $container['db'] = function () {
       "dbname"   => 'phalcon_app',
     ]
   );
+  $eventsManager = new EventsManager();
+  $eventsManager->attach(
+    'db:beforeQuery',
+    function (Event $event, $currentConnection) {
+      error_log('statement='.$currentConnection->getSQLStatement());
+      error_log('bind='.var_export($currentConnection->getSQLVariables(),true));
+    }
+  );
+  $connection->setEventsManager($eventsManager);
+  return $connection;
 };
 
 $application = new Application($container);
