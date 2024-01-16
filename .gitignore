@@ -4,6 +4,14 @@
 # PHP Composer (similar to node_modules in npm/yarn)
 vendor
 
+# npm
+node_modules
+
+# build
+dist
+public/node_modules
+public/bundle.js
+
 # Vim
 *.swp
 **/*.swp

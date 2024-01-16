@@ -24,21 +24,36 @@ It takes up about 2 Gb on my system and takes about 10 minutes to build from scr
    cp .env.example .env # copy dotenv example file
    docker-compose up -d
    ```
-6. Open a terminal in the docker container and install backend dependencies via composer:
+6. Open a new terminal tab, then open a terminal in the docker container and install backend dependencies via composer:
    ```bash
    docker exec -it app /bin/bash
    composer install
    ```
 
-   Next, run database migrations, creating the users table:
+   Then, install frontend dependencies via npm:
+   ```bash
+   npm install
+   ```
+
+   Now we need to build our frontend js using babel and webpack:
+   ```bash
+   npm run build
+   ```
+
+   Next, run database migrations, creating the users table and seeding it with our one test user:
    ```bash
    vendor/bin/phalcon-migrations run
    ```
+
+   Keep in mind that all of these commands should be run in the docker container, not in your local terminal.
 7. In another terminal tab, start following the docker logs so you can see apache logs:
    ```bash
    docker logs app --follow
    ```
 8. Visit http://localhost:8080/ in browser
+9. The login credentials for testing are:
+   - Email: spongebob@example.com
+   - Password: IAmSpongeBobsPassword
 
 
 # Utility How To

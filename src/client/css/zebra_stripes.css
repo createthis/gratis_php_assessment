@@ -1,0 +1,25 @@
+div.zebra-stripes > div.header {
+  padding-left: 8px;
+  padding-right: 8px;
+  padding-top: 8px;
+}
+div.zebra-stripes > div.header > div {
+  border-top: 0;
+  font-size: 14px;
+  font-weight: bold;
+  line-height: 1.42857143;
+}
+div.zebra-stripes > div.data > div.row:nth-of-type(odd) {
+  background-color: #f9f9f9;
+  border-top: 1px solid #ddd;
+  padding: 8px;
+  line-height: 1.42857143;
+  vertical-align: top;
+}
+div.zebra-stripes > div.data > div.row:nth-of-type(even) {
+  background: #FFFFFF;
+  border-top: 1px solid #ddd;
+  padding: 8px;
+  line-height: 1.42857143;
+  vertical-align: top;
+}
