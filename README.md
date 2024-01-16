@@ -16,6 +16,7 @@ NPM provides convenient package management for frontend modules, including secur
 It could easily be augmented with frontend unit tests (Jest + React Testing Library) and even Typescript.
 
 The docker images (app and mysql) take up about 2 Gb on my system and takes about 10 minutes to build from scratch.
+Being a docker system, this example should theoretically run on any system on which docker desktop can be installed.
 
 Let's get started:
 
