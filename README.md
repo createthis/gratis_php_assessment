@@ -7,7 +7,9 @@ The assessment asked me to use XAMPP. However:
 - I use a Mac for development and I wanted to see if Docker would help standardize the environment.
 
 Therefore, I built a Docker container with XAMPP, PHP 8.2, and Phalcon 5.6.0. The backend PHP packages are managed
-using composer.
+using composer. I'm utilizing Phalcon's built-in ORM for database access and their custom migration system. I'm not
+a huge fan of their migration system, so I might recommend the Phinx migration system instead, as that is what the
+example Vokuro app uses. It seems a little more robust.
 
 The frontend is a hybrid single page application with Phalcon MVC backend, utilizing NPM + React + Babel + Webpack.
 NPM provides convenient package management for frontend modules, including security vulnerability information.
