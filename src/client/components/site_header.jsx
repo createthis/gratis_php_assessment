@@ -22,20 +22,23 @@ function SiteHeader(props) {
           >
             Home
           </Button>
-          <Button
-            id="login_button"
-            variant="info"
-            href="/login"
-          >
-            Login
-          </Button>
-          <Button
-            id="logout_button"
-            variant="warning"
-            href="/logout"
-          >
-            Logout
-          </Button>
+          { props.user_id ?
+            <Button
+              id="logout_button"
+              variant="warning"
+              href="/logout"
+            >
+              Logout
+            </Button>
+            :
+            <Button
+              id="login_button"
+              variant="info"
+              href="/login"
+            >
+              Login
+            </Button>
+          }
         </Form>
       </Navbar.Collapse>
     </Navbar>
@@ -46,6 +49,7 @@ function SiteHeader(props) {
 
 SiteHeader.propTypes = {
   title: PropTypes.string,
+  user_id: PropTypes.number,
 }
 
 export default SiteHeader;

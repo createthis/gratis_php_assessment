@@ -5,13 +5,18 @@ import {
 } from 'react-bootstrap';
 import SiteHeader from '~/src/client/components/site_header.jsx';
 import '~/src/client/css/root.css';
+import PropTypes from 'prop-types';
 
-function Root() {
+function Root(props) {
   return (
     <Container className="zebra-stripes">
-      <SiteHeader title="Welcome"></SiteHeader>
+      <SiteHeader user_id={props.user_id} title="Welcome"></SiteHeader>
     </Container>
   );
+}
+
+Root.propTypes = {
+  user_id: PropTypes.number,
 }
 
 export default Root;

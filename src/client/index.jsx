@@ -11,12 +11,12 @@ if (document.getElementById('root')) {
   const container = document.getElementById('root');
   const data = JSON.parse(container.getAttribute('data'));
   const root = createRoot(container);
-  root.render(<Root data={data} />);
+  root.render(<Root {...data} />);
 }
 
 if (document.getElementById('login')) {
   const container = document.getElementById('login');
   const data = JSON.parse(container.getAttribute('data'));
   const root = createRoot(container);
-  root.render(<Login data={data} />);
+  root.render(<Login {...data} />);
 }
